@@ -182,6 +182,7 @@ Generated: ${new Date().toLocaleDateString()}`;
         return <ScatterPlot data={plotData} />;
       case 'heatmap':
         return <HeatmapPlot data={plotData} />;
+      default:
         return <ProfilePlot data={plotData} />;
     }
   };
@@ -199,6 +200,7 @@ Generated: ${new Date().toLocaleDateString()}`;
             <Badge variant="outline" className="text-xs">
               {plotData.length} data points
             </Badge>
+            <Button size="sm" variant="outline" onClick={handleCustomize}>
               <Settings className="w-4 h-4 mr-2" />
               Customize
             </Button>
@@ -223,7 +225,7 @@ Generated: ${new Date().toLocaleDateString()}`;
             </Button>
           </div>
         </div>
-
+        
         {/* Visualization Types */}
         <Tabs value={activeVisualization} onValueChange={setActiveVisualization} className="mt-4">
           <TabsList className="grid grid-cols-4 w-full max-w-md">
